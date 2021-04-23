@@ -3,7 +3,7 @@ const todoRouter = express.Router();
 
 const pool = require('../modules/pool');
 
-router.get('/', (req, res) => {
+todoRouter.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "list";';
     pool.query(queryText).then(result => {
       // Sends back the results in an object

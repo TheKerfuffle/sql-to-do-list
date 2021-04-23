@@ -5,7 +5,7 @@ const todoRouter = require('./routes/todo-router.js');
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/books', booksRouter);
+app.use('/list', todoRouter);
 
 // Serve back static files by default
 app.use(express.static('server/public'))
