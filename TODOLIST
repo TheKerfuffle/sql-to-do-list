@@ -1,5 +1,5 @@
 
-[ ] SET UP CLIENT SIDE / JQUERY CLICK HANDLERS
+[ x ,  ] SET UP CLIENT SIDE / JQUERY CLICK HANDLERS
 
 [ x ] SET UP HTML FILE WITH UI/EMPTY TABLE
 
@@ -16,13 +16,13 @@
 
 [ ] LINK UP CRUD
 
-    [ ] GET
-        [ ] CLIENT
-        [ ] SERVER
+    [ x ] GET
+        [ x ] CLIENT
+        [ x ] SERVER
 
     [ ] POST
-        [ ] CLIENT
-        [ ] SERVER
+        [ x ] CLIENT
+        [ x ] SERVER
 
     [ ] DELETE
         [ ] CLIENT
