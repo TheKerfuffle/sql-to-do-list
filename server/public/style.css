@@ -19,3 +19,7 @@ main {
 th {
     padding: .25rem;
 }
+
+.complete {
+    background-color: lightgreen;
+}

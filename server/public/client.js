@@ -5,10 +5,11 @@ function onReady() {
     getList();
     // Set up click listeners
     $('#addButton').on('click', addTask);
-    $('#allTasks').on('click', '.deleteButton', deleteTask);
-    $('#allTasks').on('click', '.editButton', editTask);
-    $('#allTasks').on('click', '.completeButton', completeTask);
+    $('#allTasks').on('click', '.deleteButton', deleteTaskHandler);
+    $('#allTasks').on('click', '.completeButton', completeTaskHandler);
 }
+
+// GET
 
 function getList() {
     $.ajax({
@@ -18,17 +19,19 @@ function getList() {
         console.log('Getting response', response);
         renderList(response);
     })
-} // end getList
+}
 
 function renderList(response) {
     // Empty the table
     $('#allTasks').empty();
+
     // Initialize row to append
     let newRow = '';
+
     // Append all rows to the DOM
     for (let i = 0; i < response.length; i++) {
         newRow = `<tr>`;
-        // If the task is completed, we add the complete class to the table row
+        // If the task is completed, we reset the complete class to the table row
         if (response[i].complete) {
             newRow = `<tr class="complete">`;
         }
@@ -37,15 +40,14 @@ function renderList(response) {
           <td>${response[i].task}</td>
           <td>
             <button class="completeButton" data-id=${response[i].id}>Complete</button>
-            <button class="editButton" data-id=${response[i].id}>Edit</button>
             <button class="deleteButton" data-id=${response[i].id}>Remove</button>
           </td>
         </tr>`;
         $('#allTasks').append(newRow);
-      
-
     }
-}//end render
+}
+
+// POST
 
 function addTask() {
     // make a Task to send, all tasks when added should be false to start
@@ -66,14 +68,36 @@ function addTask() {
     })
 }
 
-function deleteTask() {
-    
+// DELETE
+
+function deleteTaskHandler() {
+    deleteTask($(this).data("id"));
 }
 
-function editTask() {
-    
+function deleteTask(taskId) {
+    $.ajax({
+        method: 'DELETE',
+        url: `/list/${taskId}`,
+    }).then(function (response) {
+        getList();
+    }).catch(function (error) {
+        alert('Error on deleting task.', error);
+    });
 }
 
-function completeTask() {
-    
+// PUT
+
+function completeTaskHandler() {
+    completeTask($(this).data("id"));
+}
+
+function completeTask(completeId) {
+    $.ajax({
+        method: 'PUT',
+        url: `/koalas/${completeId}`,
+    }).then(function (response) {
+        getList();
+    }).catch(function (error) {
+        alert('error completing task', error);
+    })
 }
