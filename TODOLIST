@@ -3,18 +3,18 @@
 
 [ x ] SET UP HTML FILE WITH UI/EMPTY TABLE
 
-[ ] BASIC CSS STYLING
+[ x , x ,  ] BASIC CSS STYLING
 
     [ x ] BASE MODE
 
-    [ ] LOGIC MODE
+    [ x ] LOGIC MODE
 
     [ ] LOOKS KINDA GOOD MODE
 
 
 
 
-[ ] LINK UP CRUD
+[ x ] LINK UP CRUD
 
     [ x ] GET - WRITE TO DOM
         [ x ] CLIENT
@@ -28,9 +28,9 @@
         [ x ] CLIENT
         [ x ] SERVER
 
-    [ ] PUT - TASK COMPLETE
-        [ ] CLIENT
-        [ ] SERVER
+    [ x ] PUT - TASK COMPLETE
+        [ x ] CLIENT
+        [ x ] SERVER
 
 
 

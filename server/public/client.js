@@ -36,8 +36,7 @@ function renderList(response) {
             newRow = `<tr class="complete">`;
         }
         // Then we concatenate the rest of the table row
-        newRow += `<td>${i+1}</td>
-          <td>${response[i].task}</td>
+        newRow += `<td>${response[i].task}</td>
           <td>
             <button class="completeButton" data-id=${response[i].id}>Complete</button>
             <button class="deleteButton" data-id=${response[i].id}>Remove</button>
