@@ -5,3 +5,17 @@ header {
 body {
     margin: 0;
 }
+
+h1  {
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    margin: 10px;
+}
+
+th {
+    padding: .25rem;
+}
