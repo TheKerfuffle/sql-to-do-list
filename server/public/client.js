@@ -36,7 +36,7 @@ function renderList(response) {
             newRow = `<tr class="complete">`;
         }
         // Then we concatenate the rest of the table row
-        newRow += `<td>${response[i].id}</td>
+        newRow += `<td>${i+1}</td>
           <td>${response[i].task}</td>
           <td>
             <button class="completeButton" data-id=${response[i].id}>Complete</button>
@@ -94,7 +94,7 @@ function completeTaskHandler() {
 function completeTask(completeId) {
     $.ajax({
         method: 'PUT',
-        url: `/koalas/${completeId}`,
+        url: `/list/${completeId}`,
     }).then(function (response) {
         getList();
     }).catch(function (error) {
