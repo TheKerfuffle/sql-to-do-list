@@ -19,3 +19,15 @@ main {
 th {
     padding: .25rem;
 }
+
+.complete {
+    display: inline-block;
+}
+
+.incomplete {
+    display: inline-block;
+}
+
+div {
+    border: solid 1px black;
+}
