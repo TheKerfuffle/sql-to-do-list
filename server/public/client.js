@@ -29,7 +29,7 @@ function onReady() {
 //         <tr>
 //             <td>${response[i].task}</td>
 //             <td>
-//                 <button class="incompleteButton" data-id=${response[i].id}>Incomplete</button>
+//                 <button class="completeButton" data-id=${response[i].id}>Incomplete</button>
 //                 <button class="editButton" data-id=${response[i].id}>Edit</button>
 //                 <button class="deleteButton" data-id=${response[i].id}>Remove</button>
 //             </td>
@@ -63,34 +63,33 @@ function renderList(response) {
     // Append all rows to the DOM
     for (let i = 0; i < response.length; i++) {
 
-        // If the task is complete we append the task to the completed task table
-        if (response[i].complete) {
-            newTask = `
-        <div class="complete" data-id="${response[i].id}">
-            <h3>${response[i].task}</h3>
-            <p> 
-                <button class="incompleteButton" data-id=${response[i].id}>Incomplete</button>
-                <button class="editButton" data-id=${response[i].id}>Edit</button>
-                <button class="deleteButton" data-id=${response[i].id}>Remove</button>
-            </p>
-        </div>`
-            // Append a new COMPLETED task to the DOM
-            $('#completeTasks').append(newTask);
-        } 
-
         // If the task is incomplete we append the task to the incomplete tasks table
-        else if (!response[i].complete) {
+        if (!response[i].complete) {
             newTask = `
         <div class="incomplete" data-id="${response[i].id}">
             <h3>${response[i].task}</h3>
             <p> 
-                <button class="completeButton" data-id=${response[i].id}>Complete</button>
-                <button class="editButton" data-id=${response[i].id}>Edit</button>
-                <button class="deleteButton" data-id=${response[i].id}>Remove</button>
+                <button class="completeButton btn btn-success" data-id=${response[i].id}>Complete</button>
+                <button class="editButton btn btn-info" data-id=${response[i].id}>Edit</button>
+                <button class="deleteButton btn btn-danger" data-id=${response[i].id}>Remove</button>
             </p>
         </div>`
             // Append a new INCOMPLETE task to the DOM
             $('#incompleteTasks').append(newTask);
+        }
+
+        // If the task is complete we append the task to the completed task table
+        else if (response[i].complete) {
+            newTask = `
+        <div class="complete" data-id="${response[i].id}">
+            <h3>${response[i].task}</h3>
+            <p> 
+                <button class="editButton btn btn-info" data-id=${response[i].id}>Edit</button>
+                <button class="deleteButton btn btn-danger" data-id=${response[i].id}>Remove</button>
+            </p>
+        </div>`
+            // Append a new COMPLETED task to the DOM
+            $('#completeTasks').append(newTask);
         }
     }
 }
@@ -147,6 +146,7 @@ function deleteTask(taskId) {
 
 // PUT
 
+// Completing a task
 function completeTaskHandler() {
     completeTask($(this).data("id"));
 }
