@@ -50,13 +50,20 @@ th {
 }
 
 .task {
-    min-width: 200px;
+    min-height: 200px;
     border: solid 1px black;
     margin: .5rem;
 }
 
 .btn-group {
     padding: 10px;
+}
+
+.mb-3 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+
 }
 
 .inputBar {
@@ -72,6 +79,7 @@ th {
 
 .task-words {
     padding: 10px;
+    padding-top: 30px;
     text-align: center;
     color: #647FA6;
 }

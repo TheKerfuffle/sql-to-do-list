@@ -1,7 +1,7 @@
 $(onReady);
 
 function onReady() {
-    // We want to write all current tasks to the DOM upon page load
+    // We want to write all current tasks to the DOM upon page load/reload
     getList();
     // Set up click listeners
     $('#addButton').on('click', addTask);
@@ -16,13 +16,13 @@ function onReady() {
 //     // Empty the table
 //     $('#allTasks').empty();
 //     $('#completeTasks').empty();
-
+//
 //     // Initialize row to append
 //     let newRow = '';
-
+//
 //     // Append all rows to the DOM
 //     for (let i = 0; i < response.length; i++) {
-
+//
 //         // If the task is complete we append the task to the completed task table
 //         if (response[i].complete) {
 //             newRow = `
@@ -53,20 +53,23 @@ function onReady() {
 // }
 
 function renderList(response) {
-    // Empty the table
+    // Empty BOTH tables
     $('#incompleteTasks').empty();
     $('#completeTasks').empty();
 
     // Initialize row to append
     let newTask = ``;
 
-    // Append all rows to the DOM
+    // Loop through all rows of the database
     for (let i = 0; i < response.length; i++) {
 
         // If the task is incomplete we append the task to the incomplete tasks table
         // Also, I badly wanted the edit remove and complete buttons to have simple icons 
         // instead of words to go with the minimal UI aesthetic. The long svg tags
-        // Are the only way I could get them to work. 
+        // Are the only way I could get them to work. BUT I ALSO WANTED THEM CENTERED 
+        // *sigh*
+
+        // Incomplete tasks first
         if (!response[i].complete) {
             newTask = `
         <div class="incomplete task" data-id="${response[i].id}">
@@ -94,7 +97,7 @@ function renderList(response) {
             $('#incompleteTasks').append(newTask);
         }
 
-        // If the task is complete we append the task to the completed task table
+        // If task is complete, we append those below incomplete tasks
         else if (response[i].complete) {
             newTask = `
         <div class="complete task" data-id="${response[i].id}">
@@ -127,6 +130,7 @@ function getList() {
         url: '/list'
     }).then(function (response) {
         console.log('Getting response', response);
+        // Anytime we GET, we RENDER
         renderList(response);
     })
 }
@@ -139,7 +143,8 @@ function addTask() {
         alert("Please add text to your task")
     }
 
-    // Otherwise we'll trust the user
+    // Otherwise we'll trust the user wants to add something...
+    // no matter how regrettable
     else {
         // make a Task to send, all tasks when added should be false to start
         let newTask = {
