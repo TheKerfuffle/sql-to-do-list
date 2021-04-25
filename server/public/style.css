@@ -1,5 +1,9 @@
+html {
+    background-color: #647FA6;
+}
+
 header {
-    background-color: maroon;
+    background-color: #647FA6;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     margin: 0px;
@@ -8,6 +12,7 @@ header {
 
 body {
     margin: 0;
+
 }
 
 h1  {
@@ -17,8 +22,16 @@ h1  {
 }
 
 main {
-    margin: 10px;
-    background-color: lightgrey;
+    padding: 1rem;
+    background-color: #647FA6;
+}
+
+footer {
+    background-color: #647FA6;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin: 0px;
+    padding: 1rem;
 }
 
 th {
@@ -27,20 +40,45 @@ th {
 
 .complete {
     display: inline-block;
+    background-color: #F7F7FF;
 }
 
 .incomplete {
     display: inline-block;
+    background-color: #FFFF88;
 }
 
 div {
     border: solid 1px black;
+    margin: .5rem;
+
 }
 
 #incompleteTasks {
-    background-color: lightgrey;
+
 }
 
 #completeTasks {
-    background-color: lightgreen;
+
+}
+
+.mb-3 {
+    border: white;
+}
+
+.inputBar {
+    margin: 0;
+    padding: 1rem;
+}
+
+#addButton {
+    background-color: darkgray;
+    color: white;
+    
+}
+
+.task-words {
+    padding: 10px;
+    
+    color: #647FA6;
 }
