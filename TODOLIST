@@ -9,7 +9,7 @@
 
     [ x ] LOGIC MODE
 
-    [ ] LOOKS KINDA GOOD MODE - CHANGE TASKS TO CARDS
+    [ x ] LOOKS KINDA GOOD MODE - CHANGE TASKS TO CARDS
 
 
 
@@ -34,11 +34,6 @@
         
     [ x ] EDIT - GET/DELETE COMBO 
         [ x ] CLIENT
-            [  ] MAKE IT SO THE COMPLETEDNESS OF EDITTED TASK PERSISTS THE EDIT
-
-
-
-[  ] DEPLOY
 
 
 

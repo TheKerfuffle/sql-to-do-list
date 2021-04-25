@@ -1,4 +1,6 @@
 html {
+    /* I don't know if it is bootstrap or what but the whole page was not 
+    filling in the background color and this is how I got it to stick  */
     background-color: #647FA6;
 }
 
@@ -12,7 +14,6 @@ header {
 
 body {
     margin: 0;
-
 }
 
 h1  {
@@ -48,22 +49,14 @@ th {
     background-color: #FFFF88;
 }
 
-div {
+.task {
+    min-width: 200px;
     border: solid 1px black;
     margin: .5rem;
-
 }
 
-#incompleteTasks {
-
-}
-
-#completeTasks {
-
-}
-
-.mb-3 {
-    border: white;
+.btn-group {
+    padding: 10px;
 }
 
 .inputBar {
@@ -79,6 +72,7 @@ div {
 
 .task-words {
     padding: 10px;
-    
+    text-align: center;
     color: #647FA6;
 }
+
