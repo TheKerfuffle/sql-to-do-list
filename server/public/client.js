@@ -172,6 +172,7 @@ function deleteTaskHandler() {
     deleteTask($(this).data("id"));
 }
 
+// Fairly straightforward. When we delete we rewrite all tasks to the DOM
 function deleteTask(taskId) {
     $.ajax({
         method: 'DELETE',
@@ -185,11 +186,12 @@ function deleteTask(taskId) {
 
 // PUT
 
-// Completing a task
 function completeTaskHandler() {
     completeTask($(this).data("id"));
 }
 
+// Completing a task will switch false to 
+// true of a particular task in the database
 function completeTask(completeId) {
     $.ajax({
         method: 'PUT',
@@ -207,6 +209,10 @@ function editTaskHandler() {
     editTask($(this).data("id"));
 }
 
+// Combination of delete and get.
+// Delete the task we are editting and take the 
+// text of the deleted task and put it into the input field.
+// Might be a little inelegent, but it works as intended.
 function editTask(taskId) {
 
     $.ajax({
