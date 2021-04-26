@@ -11,6 +11,7 @@ app.use('/list', todoRouter);
 app.use(express.static('server/public'))
 
 // Start listening for requests on a specific port
+// or an environmental variable
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log('listening on port', PORT);
